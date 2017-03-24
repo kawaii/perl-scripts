@@ -24,7 +24,7 @@ OOQxmAZCkVgoIfiXuCMEKVjnU8b4FNLpmAFa1TCKuWmadTl52vrZWmmUBGtHlELp6TXixdsLJhXG
 K3GD8itl7CKzEKQ8gBwWUQAAOw==
 IMAGE64
 
-open my $imgOut, '>', "dorito.gif" or die "Can't create image file: $!\n";
-binmode $imgOut;
-print $imgOut MIME::Base64::decode ($dorito64);
-close $imgOut;
+open my $spawnChip, '>', "dorito.gif" or die "Couldn't create a dorito!: $!\n";
+binmode $spawnChip;
+print $spawnChip MIME::Base64::decode ($dorito64);
+close $spawnChip;
