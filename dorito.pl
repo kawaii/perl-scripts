@@ -10,7 +10,22 @@
 
 use strict;
 use warnings;
+use Getopt::Long;
+use Pod::Usage;
+use File::Copy;
 use MIME::Base64 qw();
+
+my $count = 1;
+my $help = 0;
+
+GetOptions (
+    "count|c=i" => \$count,
+    'help' => \$help,
+);
+
+if( $help ) {
+    die "This script will create you some tasty doritos!\n";
+}
 
 my $dorito64 = <<IMAGE64;
 R0lGODlhMgAyAPEDAAAAAP2BAP///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQJAwADACwAAAAA
@@ -27,4 +42,5 @@ IMAGE64
 open my $spawnChip, '>', "dorito.gif" or die "Couldn't create a dorito!: $!\n";
 binmode $spawnChip;
 print $spawnChip MIME::Base64::decode ($dorito64);
+print "Spawned a dorito!\n";
 close $spawnChip;
