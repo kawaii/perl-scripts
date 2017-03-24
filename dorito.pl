@@ -1,30 +1,35 @@
 #!/usr/bin/perl
 
-##############################################################
+use strict;
+use warnings;
+use Getopt::Long;
+use MIME::Base64 qw();
+
+my $help = 0;
+my $version = 0;
+
+my $count = 1;
+my $doritocalypse = 0;
+
+GetOptions (
+    'count|c=i' => \$count,
+    'doritocalypse' => \$doritocalypse,
+    'help' => \$help,
+    'version' => \$version
+);
+
+if( $help ) {
+    die "##############################################################
 #  Script     : dorito.pl
 #  Author     : Kane Valentine
 #  Date       : 2017/03/24
 #  Last Edited: 2017/03/24
 #  Description: creates unlimited doritos at your command!
-##############################################################
+##############################################################\n";
+}
 
-use strict;
-use warnings;
-use Getopt::Long;
-use Pod::Usage;
-use File::Copy;
-use MIME::Base64 qw();
-
-my $count = 1;
-my $help = 0;
-
-GetOptions (
-    "count|c=i" => \$count,
-    'help' => \$help,
-);
-
-if( $help ) {
-    die "This script will create you some tasty doritos!\n";
+if( $version ) {
+    die "v0.1 - 20170324\n";
 }
 
 my $dorito64 = <<IMAGE64;
