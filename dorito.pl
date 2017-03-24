@@ -1,4 +1,13 @@
 #!/usr/bin/perl
+
+##############################################################
+#  Script     : dorito.pl
+#  Author     : Kane Valentine
+#  Date       : 2017/03/24
+#  Last Edited: 2017/03/24
+#  Description: creates unlimited doritos at your command!
+##############################################################
+
 use strict;
 use warnings;
 use MIME::Base64 qw();
